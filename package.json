@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@percy/cli": "^1.27.3",
+    "@percy/webdriver-utils": "1.27.0-alpha.0"
+  }
+}
