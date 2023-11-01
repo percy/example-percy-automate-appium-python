@@ -1,6 +1,6 @@
 import os
 import json
-from selenium import webdriver
+from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -79,7 +79,6 @@ if __name__ == "__main__":
       "buildName" : "test percy_screenshot",
       "sessionName" : "BStack first_test",
       "local" : "false",
-      "seleniumVersion" : "3.14.0",
       "userName": USER_NAME,
       "accessKey": ACCESS_KEY,
     },

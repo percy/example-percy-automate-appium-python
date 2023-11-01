@@ -1,6 +1,6 @@
 import os
 import json
-from selenium import webdriver
+from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -89,4 +89,3 @@ if __name__ == "__main__":
    
    capabilities_list = [chrome_on_windows_11]
    print(list(map(test_session, capabilities_list)))
- this is shivam singh
