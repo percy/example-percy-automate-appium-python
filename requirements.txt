@@ -1,0 +1,4 @@
+requests==2.*
+selenium >= 3.11.0,<=4.8.3
+Appium-Python-Client
+percy-appium-app
