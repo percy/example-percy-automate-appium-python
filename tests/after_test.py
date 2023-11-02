@@ -13,11 +13,6 @@ def test_session(capability):
     # create an automate session by creating a remote webdriver
     driver = webdriver.Remote("https://hub-cloud.browserstack.com/wd/hub", capability)
     try:
-      # [percy note: important step] 
-      # set the desired window size on which we want the screenshot
-      width, height = 1280, 1024
-      driver.set_window_size(width, height)
-
       # navigate to required website
       driver.get('https://bstackdemo.com/')
       WebDriverWait(driver, 10).until(EC.title_contains('StackDemo'))
@@ -70,14 +65,14 @@ def test_session(capability):
        driver.quit()
 
 if __name__ == "__main__":
-   chrome_on_windows_11 = {
+   desired_capabilities = {
     'bstack:options' : {
       "deviceName": "Samsung Galaxy S22 Ultra",
       "osVersion" : "12",
       "browserVersion" : "latest",
       "projectName" : "My Project",
-      "buildName" : "test percy_screenshot",
-      "sessionName" : "BStack first_test",
+      "buildName" : "Percy Screenshot",
+      "sessionName" : "POA first session",
       "local" : "false",
       "userName": USER_NAME,
       "accessKey": ACCESS_KEY,
@@ -85,5 +80,5 @@ if __name__ == "__main__":
     "browserName" : "Chrome",
   }
    
-   capabilities_list = [chrome_on_windows_11]
+   capabilities_list = [desired_capabilities]
    print(list(map(test_session, capabilities_list)))
