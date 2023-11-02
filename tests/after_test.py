@@ -55,11 +55,11 @@ def test_session(capability):
       if item_on_page == item_in_cart:
           # Set the status of test as 'passed' if item is added to cart
           driver.execute_script(
-              'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "iPhone 12 has been successfully added to the cart!"}}')
+              'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "Galaxy S20 has been successfully added to the cart!"}}')
       else:
           # Set the status of test as 'failed' if item is not added to cart
           driver.execute_script(
-              'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "iPhone 12 not added to the cart!"}}')
+              'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "Galaxy S20 not added to the cart!"}}')
     except Exception as e:
        message = f'Error occured while executing script : {str(e.__class__)} {str(e.__msg__)}'
        print(message)
