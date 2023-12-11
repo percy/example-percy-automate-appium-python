@@ -3,6 +3,7 @@ import json
 from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from percy import percy_screenshot
 
@@ -10,8 +11,10 @@ USER_NAME = os.environ.get("BROWSERSTACK_USERNAME", "BROWSERSTACK_USERNAME")
 ACCESS_KEY = os.environ.get("BROWSERSTACK_ACCESS_KEY", "BROWSERSTACK_ACCESS_KEY")
 
 def test_session(capability):
+    options = Options()
+    options.set_capability('bstack:options', capability['bstack:options'])
     # create an automate session by creating a remote webdriver
-    driver = webdriver.Remote("https://hub-cloud.browserstack.com/wd/hub", capability)
+    driver = webdriver.Remote(command_executor="https://hub-cloud.browserstack.com/wd/hub", options=options)
     try:
       # navigate to required website
       driver.get('https://bstackdemo.com/')
