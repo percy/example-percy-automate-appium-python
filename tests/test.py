@@ -11,10 +11,8 @@ USER_NAME = os.environ.get("BROWSERSTACK_USERNAME", "BROWSERSTACK_USERNAME")
 ACCESS_KEY = os.environ.get("BROWSERSTACK_ACCESS_KEY", "BROWSERSTACK_ACCESS_KEY")
 
 def test_session(capability):
-    options = Options()
-    options.set_capability('bstack:options', capability['bstack:options'])
     # create an automate session by creating a remote webdriver
-    driver = webdriver.Remote(command_executor="https://hub-cloud.browserstack.com/wd/hub", options=options)
+    driver = webdriver.Remote("https://hub-cloud.browserstack.com/wd/hub", capability)
     try:
       # navigate to required website
       driver.get('https://bstackdemo.com/')
@@ -70,17 +68,17 @@ def test_session(capability):
 if __name__ == "__main__":
    desired_capabilities = {
     'bstack:options' : {
-      "deviceName": "Samsung Galaxy S22 Ultra",
+      "deviceName": "Samsung Galaxy S22",
+      "realMobile": True,
       "osVersion" : "12",
-      "browserVersion" : "latest",
       "projectName" : "My Project",
-      "buildName" : "Percy Screenshot",
-      "sessionName" : "POA first session",
+      "buildName" : "Appium Percy Python",
+      "sessionName" : "POA Python session",
       "local" : "false",
       "userName": USER_NAME,
       "accessKey": ACCESS_KEY,
     },
-    "browserName" : "Chrome",
+    "browserName" : "chrome",
   }
    
    capabilities_list = [desired_capabilities]

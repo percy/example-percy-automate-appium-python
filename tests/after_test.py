@@ -67,18 +67,18 @@ def test_session(capability):
 if __name__ == "__main__":
    desired_capabilities = {
     'bstack:options' : {
-      "deviceName": "Samsung Galaxy S22 Ultra",
-      "osVersion" : "12",
-      "browserVersion" : "latest",
+      "deviceName": "Samsung Galaxy S22",
+      'realMobile': True,
+      "osVersion" : "12.0",
       "projectName" : "My Project",
-      "buildName" : "Percy Screenshot",
-      "sessionName" : "POA first session",
+      "buildName" : "Appium Percy Python",
+      "sessionName" : "POA Python session",
       "local" : "false",
       "userName": USER_NAME,
       "accessKey": ACCESS_KEY,
     },
-    "browserName" : "Chrome",
+    "browserName" : "chrome",
   }
-   
+   print(desired_capabilities)
    capabilities_list = [desired_capabilities]
    print(list(map(test_session, capabilities_list)))
