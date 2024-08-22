@@ -45,7 +45,10 @@ def test_session(capability):
       # [percy note: important step]
       # Percy Screenshot 2
       # take percy_screenshot using the following command
-      percy_screenshot(driver, name = 'screenshot_2')
+      opts = {
+         "full_page": True
+      }
+      percy_screenshot(driver, name = 'screenshot_2', options = opts)
 
       if item_on_page == item_in_cart:
           # Set the status of test as 'passed' if item is added to cart
@@ -65,11 +68,11 @@ def test_session(capability):
        driver.quit()
 
 if __name__ == "__main__":
-   desired_capabilities = {
+   desired_capabilities1 = {
     'bstack:options' : {
-      "deviceName": "iPhone 13",
-      "realMobile": True,
-      "osVersion" : "15",
+      "deviceName": "Google Pixel 9",
+      # "realMobile": True,
+      "osVersion" : "14",
       "projectName" : "Percy",
       "buildName" : "Appium SDKs",
       "sessionName" : "ios-python",
@@ -77,8 +80,22 @@ if __name__ == "__main__":
       "userName": USER_NAME,
       "accessKey": ACCESS_KEY,
     },
-    "browserName" : "safari",
+    "browserName" : "chrome",
+  }
+   desired_capabilities2 = {
+    'bstack:options' : {
+      "deviceName": "Google Pixel 9 Pro XL",
+      # "realMobile": True,
+      "osVersion" : "14",
+      "projectName" : "Percy",
+      "buildName" : "Appium SDKs",
+      "sessionName" : "ios-python",
+      "local" : "false",
+      "userName": USER_NAME,
+      "accessKey": ACCESS_KEY,
+    },
+    "browserName" : "chrome",
   }
    
-   capabilities_list = [desired_capabilities]
+   capabilities_list = [desired_capabilities1, desired_capabilities2]
    print(list(map(test_session, capabilities_list)))
