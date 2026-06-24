@@ -1,0 +1,40 @@
+name: Advanced — App Percy on Automate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  advanced:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: advanced
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Sanity-check BrowserStack secrets
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+        run: |
+          if [ -z "$BROWSERSTACK_USERNAME" ] || [ -z "$BROWSERSTACK_ACCESS_KEY" ]; then
+            echo "::error::BROWSERSTACK_USERNAME / BROWSERSTACK_ACCESS_KEY repo secrets are required."
+            exit 1
+          fi
+      - name: Install advanced/ dependencies
+        run: make install
+      - name: Run pytest advanced against BrowserStack
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          APP: ${{ secrets.APP_BS_URL }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: ${{ github.ref_name }}
+          PERCY_COMMIT: ${{ github.sha }}
+        run: make test

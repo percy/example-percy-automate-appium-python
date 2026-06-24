@@ -1,0 +1,68 @@
+# PER-8195 Phase 3 — Automate-Appium-Python matrix-row mapping.
+
+sdk: automate-appium-python
+package: percy-appium-app
+language: python
+mode: automate
+cli_min_version: '1.31.13'
+
+rows:
+  - id: device_name_override
+    state: covered
+  - id: orientation_handling
+    state: covered
+  - id: fullscreen
+    state: covered
+  - id: status_bar_height
+    state: covered
+  - id: nav_bar_height
+    state: covered
+  - id: ignore_regions_xpaths
+    state: covered
+  - id: custom_ignore_regions
+    state: covered
+  - id: consider_regions_xpaths
+    state: covered
+  - id: sync
+    state: covered
+  - id: test_case
+    state: covered
+  - id: labels
+    state: covered
+  - id: ignore_region_appium_elements
+    state: planned
+
+  - id: build_metadata_via_env
+    state: covered
+  - id: env_percy_branch
+    state: covered
+  - id: env_percy_commit
+    state: covered
+
+  - id: widths
+    state: n_a
+  - id: percy_css
+    state: n_a
+  - id: min_height
+    state: n_a
+  - id: enable_javascript
+    state: n_a
+  - id: scope
+    state: n_a
+  - id: discovery
+    state: n_a
+  - id: dom_transformation
+    state: n_a
+  - id: responsive_snapshot_capture
+    state: n_a
+  - id: readiness_preset
+    state: n_a
+  - id: device_pixel_ratio
+    state: n_a
+  - id: browsers
+    state: n_a
+
+  - id: percy_yml_global_config
+    state: covered
+  - id: environment_info_reporting
+    state: covered
