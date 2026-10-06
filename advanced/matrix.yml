@@ -7,17 +7,11 @@ mode: automate
 cli_min_version: '1.31.13'
 
 rows:
-  - id: device_name_override
-    state: covered
-  - id: orientation_handling
-    state: covered
-  - id: fullscreen
-    state: covered
-  - id: status_bar_height
-    state: covered
-  - id: nav_bar_height
+  - id: fullpage
     state: covered
   - id: ignore_regions_xpaths
+    state: covered
+  - id: ignore_regions_selectors
     state: covered
   - id: custom_ignore_regions
     state: covered
@@ -38,6 +32,18 @@ rows:
     state: covered
   - id: env_percy_commit
     state: covered
+
+  # App Percy device-chrome options; Percy on Automate reads these from the session.
+  - id: device_name_override
+    state: n_a
+  - id: orientation_handling
+    state: n_a
+  - id: fullscreen
+    state: n_a
+  - id: status_bar_height
+    state: n_a
+  - id: nav_bar_height
+    state: n_a
 
   - id: widths
     state: n_a
