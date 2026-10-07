@@ -34,6 +34,8 @@ def driver():
         "https://hub-cloud.browserstack.com/wd/hub",
         options=AppiumOptions().load_capabilities(capabilities),
     )
-    drv.get(URL)
-    yield drv
-    drv.quit()
+    try:
+        drv.get(URL)
+        yield drv
+    finally:
+        drv.quit()
