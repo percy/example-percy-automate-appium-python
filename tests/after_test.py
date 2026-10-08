@@ -67,6 +67,7 @@ def test_session(capability):
 if __name__ == "__main__":
    desired_capabilities = {
     'bstack:options' : {
+      "appiumVersion": os.environ.get("APPIUM_VERSION", "2.19.0"),
       "deviceName": "iPhone 13",
       "realMobile": True,
       "osVersion" : "15",
