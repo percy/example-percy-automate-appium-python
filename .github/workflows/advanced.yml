@@ -1,4 +1,4 @@
-name: Advanced — App Percy on Automate
+name: Advanced — Percy on Automate
 
 on:
   workflow_dispatch:
@@ -33,7 +33,6 @@ jobs:
         env:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-          APP: ${{ secrets.APP_BS_URL }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: ${{ github.ref_name }}
           PERCY_COMMIT: ${{ github.sha }}

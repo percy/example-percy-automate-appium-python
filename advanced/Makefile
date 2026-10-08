@@ -20,4 +20,4 @@ clean:
 	rm -rf .venv node_modules .pytest_cache __pycache__ tests/__pycache__
 
 test test-advanced: install
-	$(NPM)/percy app:exec -- $(VENV)/python3 -m pytest tests/ -v
+	$(NPM)/percy exec -- $(VENV)/python3 -m pytest tests/ -v
